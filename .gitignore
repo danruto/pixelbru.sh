@@ -1,0 +1,5 @@
+.direnv
+.dioxus
+/target/
+/dist/
+# /public/tailwind.css
