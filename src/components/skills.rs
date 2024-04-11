@@ -117,7 +117,6 @@ pub fn Skills() -> Element {
                 "AWS ECS",
                 "AWS EKS",
                 "AWS SQS",
-                "AWS SQS",
                 "GCP",
                 "Azure",
                 "Azure SDK",
@@ -143,6 +142,7 @@ pub fn Skills() -> Element {
                 "Vite",
                 "Rollup",
                 "Webpack",
+                "Express",
             ]
             .into_iter()
             .map(|skill| skill.to_string())
@@ -150,10 +150,12 @@ pub fn Skills() -> Element {
         },
         Skillset {
             name: "Rust".to_string(),
-            skills: vec!["Axum", "Dioxus", "Ratatui", "Tokio", "RTen"]
-                .into_iter()
-                .map(|skill| skill.to_string())
-                .collect(),
+            skills: vec![
+                "Axum", "Dioxus", "Tauri", "Ratatui", "Tokio", "RTen", "eGUI",
+            ]
+            .into_iter()
+            .map(|skill| skill.to_string())
+            .collect(),
         },
         Skillset {
             name: "CSS".to_string(),
@@ -164,10 +166,12 @@ pub fn Skills() -> Element {
         },
         Skillset {
             name: "Generic Web".to_string(),
-            skills: vec!["GraphQL", "REST", "curl", "xh", "Insomnia/Postman/Httpie"]
-                .into_iter()
-                .map(|skill| skill.to_string())
-                .collect(),
+            skills: vec![
+                "GraphQL", "REST", "curl", "xh", "Insomnia", "Postman", "Httpie",
+            ]
+            .into_iter()
+            .map(|skill| skill.to_string())
+            .collect(),
         },
         Skillset {
             name: "Databases".to_string(),
@@ -210,7 +214,7 @@ pub fn Skills() -> Element {
 
     rsx! {
         div {
-
+            class: "",
             div {
                 class: "flex px-4 py-4 flex-col items-center justify-center",
                 div {
@@ -223,9 +227,9 @@ pub fn Skills() -> Element {
                                 *is_open.write() = toggle;
                             },
                             if is_open() {
-                                ChevronDownIcon {}
-                            } else {
                                 ChevronUpIcon {}
+                            } else {
+                                ChevronDownIcon {}
                             }
                         }
                     },
@@ -233,12 +237,18 @@ pub fn Skills() -> Element {
                 }
             }
 
-            if is_open() {
-                 div {
-                    class: "flex px-4 py-4 flex-wrap",
+            div {
+                class: "",
+
+                div {
+                    class: if is_open() {
+                        "flex p-2 flex-wrap max-h-screen overflow-hidden transition-all duration-700"
+                    } else {
+                        "flex flex-wrap max-h-0 overflow-hidden transition-all duration-700"
+                    },
                     for skillset in skillsets {
                         div {
-                            class: "max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2",
+                            class: "max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:bg-transparent transform transition hover:scale-105 m-2",
                             h5 {
                                 class: "mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white",
                                 "{skillset.name}"

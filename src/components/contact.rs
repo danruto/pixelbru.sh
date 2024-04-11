@@ -70,7 +70,7 @@ pub fn Contact() -> Element {
             class: "flex items-center justify-center",
             for contact in contacts {
                 a {
-                    class: "px-2 text-indigo-500",
+                    class: "px-2 bg-clip-text text-indigo-400 hover:text-indigo-800",
                     role: "button",
                     title: contact.name.clone(),
                     alt: contact.name,

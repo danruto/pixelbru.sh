@@ -1,7 +1,7 @@
 [application]
 
 # App (Project) Name
-name = "Pixel Brush - Danny Sok"
+name = "portfolio"
 
 # Dioxus App Default Platform
 # desktop, web
@@ -16,7 +16,7 @@ asset_dir = "assets"
 [web.app]
 
 # HTML title tag content
-title = "pixelbrush-portfolio"
+title = "Pixel Brush - Danny Sok"
 
 [web.watcher]
 
@@ -31,7 +31,7 @@ watch_path = ["src", "assets", "public"]
 
 # CSS style file
 
-style = ["tailwind.css"]
+style = ["main.css", "tailwind.css"]
 
 # Javascript code file
 script = []

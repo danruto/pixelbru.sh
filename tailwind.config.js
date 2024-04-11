@@ -25,6 +25,9 @@ module.exports = {
     content: ["./src/**/*.{rs,html,css}", "./dist/**/*.html"],
     theme: {
         extend: {
+            fontFamily: {
+                pixelify: ["Pixelify Sans", "sans-serif"],
+            },
             animation: {
                 'text-slide-2': 'text-slide-2 5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
                 'text-slide-3': 'text-slide-3 7.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
