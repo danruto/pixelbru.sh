@@ -1,3 +1,4 @@
+use crate::components::icons::{FirefoxIcon, GithubIcon};
 use dioxus::prelude::*;
 
 #[derive(PartialEq, Props, Clone)]
@@ -20,6 +21,7 @@ struct Project {
     description: String,
     period: String,
     url: Option<String>,
+    repository: Option<String>,
     image: Option<String>,
     stack: Vec<String>,
 }
@@ -59,25 +61,28 @@ pub fn Projects() -> Element {
     let projects = [
         Project {
             name: "pixelbru.sh".to_string(),
-            description: "This website!".to_string(),
+            description: "This website! Feel free to look at the source code. The tech stack was chosen for fun.".to_string(),
             period: "2024".to_string(),
             url: Some("https://pixelbru.sh".to_string()),
+            repository: Some("https://github.com/danruto/pixelbru.sh".to_string()),
             image: None,
             stack: vec!["Tailwind", "Dioxus"].into_iter().map(str::to_string).collect(),
         },
         Project {
             name: "Retrotool".to_string(),
-            description: "A quick and easy ephemeral retro board that has some fun features like copy to clipboard for pasting in Confluence, icebreakers, post-retro questions".to_string(),
+            description: "A quick and easy ephemeral retro board that has some fun features like copy to clipboard for pasting in Confluence, ice breakers known as question time and no data is stored beyond the session.".to_string(),
             period: "2024".to_string(),
-            url: Some("https://retrotool.pixelbru.sh".to_string()),
+            url: Some("https://retro.pixelbru.sh".to_string()),
+            repository: None,
             image: None,
-            stack: vec!["Tailwind", "Dioxus"].into_iter().map(str::to_string).collect(),
+            stack: vec!["Tailwind", "SolidJS", "Go", "Fiber", "Websockets"].into_iter().map(str::to_string).collect(),
         },
         Project {
             name: "GAF Digitisation".to_string(),
             description: "Digitised the GAF calculators from https://piccc.org.au/resources/Tools.html specfiically the SB-GAF and G-GAFs. The project was built in Go and produced results for real-time calculations in under 100ms TRT".to_string(),
             period: "2022-2024".to_string(),
             url: None,
+            repository: None,
             image: None,
             stack: vec!["Go", "Fiber", "React", "Tailwind", "Hasura", "Postgres", "Tilt", "Kubernetes", "Docker"].into_iter().map(str::to_string).collect(),
         },
@@ -86,6 +91,7 @@ pub fn Projects() -> Element {
             description: "A platform to help brokers and consumers to manage the loan that is being serviced for their mortgage.".to_string(),
             period: "2021-2022".to_string(),
             url: None,
+            repository: None,
             image: None,
             stack: vec![".NET Core", "Azure", "Azure DevOps", "Go", "React", "Storybook", "Docker"].into_iter().map(str::to_string).collect(),
         },
@@ -94,6 +100,7 @@ pub fn Projects() -> Element {
             description: "A platform to help farmers track the movement and other vital information of their livestock.".to_string(),
             period: "2019-2021".to_string(),
             url: Some("https://envd.integritysystems.com.au".to_string()),
+            repository: None,
             image: None,
             stack: vec!["CSS", "SASS", "React", ".NET Core", "GraphQL", "AWS (CloudFormation, ECS, ECR, Route53, ACM, Lambda, S3, IAM)", "Bitbucket Pipelines", "Python", "Canvas/WebGL", "Storybook", "Docker"].into_iter().map(str::to_string).collect(),
         },
@@ -102,6 +109,7 @@ pub fn Projects() -> Element {
             description: "Built a UI around the concept of building your own bridesmaid dresses. These dresses had multiple components that would change in compatibility based on other selections in any direction (that is a top half, bottom half, side etc). This solution could render the stiched drawing of the calculated dress in under 100ms with full lazy loading.".to_string(),
             period: "2018-2019".to_string(),
             url: None,
+            repository: None,
             image: None,
             stack: vec!["CSS", "SASS", "Typescript", "React", ".NET Core", "AWS (Lambda, EB, S3, RDS, IAM)", "Ruby on Rails", "CircleCI", "Storybook", "Docker"].into_iter().map(str::to_string).collect(),
         },
@@ -110,6 +118,7 @@ pub fn Projects() -> Element {
             description: "Built the initial solution to CyRisk (later called eDNA) which was a cyber security risk assessment platform.".to_string(),
             period: "2017-2018".to_string(),
             url: None,
+            repository: None,
             image: None,
             stack: vec!["React", ".NET Core", "MSSQL", "Typescript", "Azure", "Azure DevOps", "Storybook"].into_iter().map(str::to_string).collect(),
         },
@@ -126,19 +135,40 @@ pub fn Projects() -> Element {
                         class: "max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 hover:bg-transparent m-2 transform transition hover:scale-105 flex flex-col justify-around",
 
                         span {
-                            class: "flex items-center justify-between",
+                            class: "flex items-baseline justify-between",
                             h5 {
                                 class: "mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white",
                                 "{project.name}"
                             },
 
-                            if project.url.is_some() {
-                                a {
-                                    class: "text-blue-300 hover:text-blue-600 animate-pulse hover:animate-none",
-                                    href: project.url.unwrap(),
-                                    "Link",
-                                }
-                            },
+                            span {
+                                class: "flex",
+
+                                if project.url.is_some() {
+                                    a {
+                                        class: "bg-clip-text text-indigo-100 hover:text-indigo-400",
+                                        role: "button",
+                                        title: "project link",
+                                        alt: "project link",
+                                        href: project.url.unwrap(),
+                                        span {
+                                            class: "w-4 h-4 rounded-full block",
+                                            FirefoxIcon {},
+                                        }
+                                    }
+                                },
+
+                                if project.repository.is_some() {
+                                    a {
+                                        class: "ml-1 bg-clip-text text-indigo-100 hover:text-indigo-400",
+                                        href: project.repository.unwrap(),
+                                        span {
+                                            class: "w-4 h-4 rounded-full block",
+                                            GithubIcon {},
+                                        }
+                                    }
+                                },
+                            }
                         },
 
                         p {
