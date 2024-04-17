@@ -1,14 +1,21 @@
+# Website for Pixel Brush
+[Pixel Brush Website](https://pixelbru.sh)
 
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the tailwind css cli: https://tailwindcss.com/docs/installation
-3. Run the following command in the root of the project to start the tailwind CSS compiler:
+# Developing
+## Install the Dioxus cli 
+I use NixOS, so install it via the bundled flake like
+`nix develop`
 
-```bash
-npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
-```
+## Run the tailwind compiler
+`make tw`
 
-Launch the Dioxus Fullstack app:
+## Run the Dioxus cli
+`make dev`
 
-```bash
-dx serve --platform fullstack
-```
+## Generate the static js/wasm bundle for deployment
+`make predeploy`
+
+# License
+MIT
+
+If any of this repository was interesting, you may contact me via `contact@pixelbru.sh`

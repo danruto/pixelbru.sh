@@ -2,4 +2,4 @@
 .dioxus
 /target/
 /dist/
-# /public/tailwind.css
+/public/tailwind.css
