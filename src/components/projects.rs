@@ -60,13 +60,31 @@ fn ProjectsFlash(props: ProjectsFlashProps) -> Element {
 pub fn Projects() -> Element {
     let projects = [
         Project {
+            name: "Raito-Zig".to_string(),
+            description: "A Zig TUI lightnovel reader".to_string(),
+            period: "2024".to_string(),
+            url: None,
+            repository: Some("https://github.com/danruto/raito-zig".to_string()),
+            image: None,
+            stack: vec!["Zig"].into_iter().map(str::to_string).collect(),
+        },
+        Project {
+            name: "Reflectal".to_string(),
+            description: "A corporate mental health and wellbeing app".to_string(),
+            period: "2024".to_string(),
+            url: Some("https://reflectal.au".to_string()),
+            repository: None,
+            image: None,
+            stack: vec!["NextJS", "Typescript", "Ladle", "Vercel", "Go", "Fiber", "Websockets", "Appwrite", "AWS", "AWS Cloudformation", "AWS ECS" , "AWS ECR", "AWS IAM", "Twilio", "Hotjar", "GA", "Postgres", "Github Actions"].into_iter().map(str::to_string).collect(),
+        },
+        Project {
             name: "pixelbru.sh".to_string(),
             description: "This website! Feel free to look at the source code. The tech stack was chosen for fun.".to_string(),
             period: "2024".to_string(),
             url: Some("https://pixelbru.sh".to_string()),
             repository: Some("https://github.com/danruto/pixelbru.sh".to_string()),
             image: None,
-            stack: vec!["Tailwind", "Dioxus"].into_iter().map(str::to_string).collect(),
+            stack: vec!["Tailwind", "Dioxus", "Rust"].into_iter().map(str::to_string).collect(),
         },
         Project {
             name: "Retrotool".to_string(),
@@ -102,7 +120,7 @@ pub fn Projects() -> Element {
             url: Some("https://envd.integritysystems.com.au".to_string()),
             repository: None,
             image: None,
-            stack: vec!["CSS", "SASS", "React", ".NET Core", "GraphQL", "AWS (CloudFormation, ECS, ECR, Route53, ACM, Lambda, S3, IAM)", "Bitbucket Pipelines", "Python", "Canvas/WebGL", "Storybook", "Docker"].into_iter().map(str::to_string).collect(),
+            stack: vec!["CSS", "SASS", "React", ".NET Core", "GraphQL", "AWS (CloudFormation -> Static Websites, IAM, RDS, ECS Lambda, etc)", "Bitbucket Pipelines", "Python", "Canvas/WebGL", "Storybook", "Docker"].into_iter().map(str::to_string).collect(),
         },
         Project {
             name: "Custom Bridesmaid Dresses".to_string(),
@@ -126,13 +144,13 @@ pub fn Projects() -> Element {
 
     rsx! {
         div {
-            class: "pt-8",
+            class: "pt-8 container mx-auto",
             div {
-                class: "flex p-2 flex-wrap",
+                class: "p-2 grid grid-cols-3 gap-2",
 
                 for project in projects {
                     div {
-                        class: "max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 hover:bg-transparent m-2 transform transition hover:scale-105 flex flex-col justify-around",
+                        class: "flex flex-col p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 hover:bg-transparent m-2 transform transition hover:scale-105 justify-around",
 
                         span {
                             class: "flex items-baseline justify-between",
@@ -161,6 +179,9 @@ pub fn Projects() -> Element {
                                 if project.repository.is_some() {
                                     a {
                                         class: "ml-1 bg-clip-text text-indigo-100 hover:text-indigo-400",
+                                        role: "button",
+                                        title: "repository link",
+                                        alt: "repository link",
                                         href: project.repository.unwrap(),
                                         span {
                                             class: "w-4 h-4 rounded-full block",

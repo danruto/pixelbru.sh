@@ -18,7 +18,8 @@
         buildInputs = [
           openssl_3_2
           pkg-config
-          dioxus-cli
+          # dioxus-cli
+          zip
         ];
         LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
       };

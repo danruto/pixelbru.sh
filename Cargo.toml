@@ -8,15 +8,14 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.197", features = ["derive"] }
+dioxus = { version = "0.5", features = ["ssr", "router"] }
 
-dioxus = { version = "0.5", features = ["web", "router"] }
-
-# Debug
 log = "0.4.19"
 dioxus-logger = "0.4.1"
-manganis = "0.2.2"
+tokio = { version = "1.40.0", features = ["full"] }
+axum = "0.7.5"
+tower-http = { version = "0.5.2", features = ["fs", "trace"] }
+dioxus-ssr = "0.5.6"
 
 [features]
 default = []
-server = ["dioxus/axum"]
-web = ["dioxus/web"]

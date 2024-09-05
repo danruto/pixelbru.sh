@@ -30,7 +30,7 @@ pub fn Landing() -> Element {
                         "Get in contact"
                     }
                 },
-                Skills {}
+                Skills { show_chevrons: false },
                 Projects {}
             },
             span { class: "p-8" },

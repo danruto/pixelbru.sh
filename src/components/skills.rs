@@ -100,7 +100,7 @@ fn SkillsFlash(props: SkillsFlashProps) -> Element {
 }
 
 #[component]
-pub fn Skills() -> Element {
+pub fn Skills(show_chevrons: bool) -> Element {
     let mut is_open = use_signal(|| false);
 
     let skillsets = [
@@ -219,17 +219,20 @@ pub fn Skills() -> Element {
                 class: "flex px-4 py-4 flex-col items-center justify-center",
                 div {
                     class: "flex flex-row items-center",
-                    span {
-                        button {
-                            class: "pr-4",
-                            onclick: move |_| {
-                                let toggle = !is_open();
-                                *is_open.write() = toggle;
-                            },
-                            if is_open() {
-                                ChevronUpIcon {}
-                            } else {
-                                ChevronDownIcon {}
+                    if show_chevrons {
+                        span {
+                            button {
+                                class: "pr-4",
+                                alt: "toggle skills expand",
+                                onclick: move |_| {
+                                    let toggle = !is_open();
+                                    *is_open.write() = toggle;
+                                },
+                                if is_open() {
+                                    ChevronUpIcon {}
+                                } else {
+                                    ChevronDownIcon {}
+                                }
                             }
                         }
                     },
