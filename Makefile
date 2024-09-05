@@ -5,7 +5,6 @@ dev_web:
 build_web:
 	rm -rf dist && dx build --release
 
-
 dev:
 	cargo r -r
 

@@ -66,7 +66,7 @@ pub fn Projects() -> Element {
             url: None,
             repository: Some("https://github.com/danruto/raito-zig".to_string()),
             image: None,
-            stack: vec!["Zig"].into_iter().map(str::to_string).collect(),
+            stack: vec!["Zig", "SQLite"].into_iter().map(str::to_string).collect(),
         },
         Project {
             name: "Reflectal".to_string(),
@@ -146,7 +146,7 @@ pub fn Projects() -> Element {
         div {
             class: "pt-8 container mx-auto",
             div {
-                class: "p-2 grid grid-cols-3 gap-2",
+                class: "p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2",
 
                 for project in projects {
                     div {
@@ -169,6 +169,7 @@ pub fn Projects() -> Element {
                                         title: "project link",
                                         alt: "project link",
                                         href: project.url.unwrap(),
+                                        target: "_blank",
                                         span {
                                             class: "w-4 h-4 rounded-full block",
                                             FirefoxIcon {},
@@ -183,6 +184,7 @@ pub fn Projects() -> Element {
                                         title: "repository link",
                                         alt: "repository link",
                                         href: project.repository.unwrap(),
+                                        target: "_blank",
                                         span {
                                             class: "w-4 h-4 rounded-full block",
                                             GithubIcon {},

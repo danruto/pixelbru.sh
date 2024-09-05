@@ -16,11 +16,11 @@ pub fn Landing() -> Element {
                         "PIXEL BRUSH"
                     }
                     h4 {
-                        class: "text-lg",
+                        class: "text-center text-lg",
                         "Full-stack Software Engineer with 10+ years experience"
                     }
                     h4 {
-                        class: "text-lg",
+                        class: "text-center text-lg",
                         "Well equiped to help you from greenfield projects to digital transformations"
                     }
                     a {

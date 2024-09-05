@@ -22,7 +22,7 @@ async fn main() {
     dioxus_logger::init(LevelFilter::Debug).expect("failed to init logger");
     // console_error_panic_hook::set_once();
 
-    let mut vdom = VirtualDom::prebuilt(App);
+    let vdom = VirtualDom::prebuilt(App);
 
     let html = dioxus_ssr::pre_render(&vdom);
     let html = format!("<!DOCTYPE html><html lang='en'>{html}</html>");

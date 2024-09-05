@@ -2,18 +2,18 @@
 [Pixel Brush Website](https://pixelbru.sh)
 
 # Developing
-## Install the Dioxus cli 
-I use NixOS, so install it via the bundled flake like
-`nix develop`
+I use NixOS and nix flakes to manage any dependencies I need.
+`nix develop` or via direnv `direnv allow`
 
 ## Run the tailwind compiler
 `make tw`
 
-## Run the Dioxus cli
-`make dev`
+## Run the axum server with
+`cargo r -r`
 
-## Generate the static js/wasm bundle for deployment
-`make predeploy`
+## To deploy
+Run the server with `make dev`
+then in another shell run `make static_save_file` to generate the static html
 
 # License
 MIT
