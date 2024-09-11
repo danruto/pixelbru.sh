@@ -82,6 +82,36 @@ fn App() -> Element {
                 href: "/public/tailwind.css",
                 "type": "text/css"
             }
+            title {
+                "Pixel Brush | Danny Sok | Full stack developer"
+            }
+            meta {
+                "property": "og:title",
+                content: "Pixel Brush | Danny Sok | Full stack developer"
+            }
+            meta {
+                charset: "utf-8"
+            }
+            meta {
+                "http-equiv": "X-UA-Compatible",
+                content: "IE=edge"
+            }
+            meta {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1"
+            }
+            meta {
+                name: "description",
+                content: "Full-stack Software Engineer with 10+ years experience. Well equiped to help you from greenfield projects to digital transformations"
+            }
+            meta {
+                "property": "og:description",
+                content: "Full-stack Software Engineer with 10+ years experience. Well equiped to help you from greenfield projects to digital transformations"
+            }
+            meta {
+                name: "twitter:card",
+                content: "summary"
+            }
         },
         Router::<Route> {}
     }

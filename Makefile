@@ -8,6 +8,13 @@ build_web:
 dev:
 	cargo r -r
 
+dev_bg:
+	cargo r -r &
+	sleep 30
+
+kill_dev_bg:
+	ps aux | rg target/release/pixelbrush-portfolio | awk 'NR==1{print $$2}' | xargs kill -9
+
 tw:
 	npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
 
@@ -22,4 +29,4 @@ static_save_file:
 
 predeploy_web: t build_web
 
-predeploy: t dev static_save_file
+predeploy: t dev_bg static_save_file kill_dev_bg
