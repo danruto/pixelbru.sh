@@ -5,3 +5,6 @@
 /public/tailwind.css
 index.html
 public.zip
+node_modules
+.env
+.next

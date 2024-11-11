@@ -1,0 +1,56 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+    "organizeImports": {
+        "enabled": true
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf",
+        "lineWidth": 120,
+        "ignore": [
+            "node_modules/**",
+            "**/node_modules/**",
+            "dist/**",
+            "pnpm-lock.yaml",
+            ".direnv/**",
+            ".git/**",
+            ".netlify",
+            ".vercel",
+            ".vinxi",
+            ".next",
+            "biome.json"
+        ]
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "style": {
+                "noNonNullAssertion": "off"
+            }
+        },
+        "ignore": [
+            "node_modules/**",
+            "**/node_modules/**",
+            "dist/**",
+            "pnpm-lock.yaml",
+            ".direnv/**",
+            ".git/**",
+            ".netlify",
+            ".vercel",
+            ".vinxi",
+            ".next",
+            "biome.json",
+            "components/ui/**",
+            "hooks/**",
+            "components/pb/icons.tsx"
+        ]
+    },
+    "javascript": {
+        "formatter": {
+            "semicolons": "asNeeded"
+        }
+    }
+}

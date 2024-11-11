@@ -16,10 +16,10 @@
     with pkgs; rec {
       devShell = mkShell rec {
         buildInputs = [
-          openssl_3_2
-          pkg-config
-          # dioxus-cli
-          zip
+          nodePackages.typescript-language-server
+          nodePackages.vscode-langservers-extracted
+          tailwindcss-language-server
+          biome
         ];
         LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
       };
