@@ -60,6 +60,15 @@ fn ProjectsFlash(props: ProjectsFlashProps) -> Element {
 pub fn Projects() -> Element {
     let projects = [
         Project {
+            name: "Tracking The Pros - Worlds 2024".to_string(),
+            description: "A Solid-Start app to track the bootcamp accounts of League of Legends Worlds 2024 participants".to_string(),
+            period: "2024".to_string(),
+            url: Some("https://worlds2024.pixelbru.sh".to_string()),
+            repository: Some("https://github.com/danruto/track-the-pros".to_string()),
+            image: None,
+            stack: vec!["SolidJS", "Solid-Start", "Typescript", "Netlify", "Vercel", "Supabase", "Postgres", "NodeJS"].into_iter().map(str::to_string).collect(),
+        },
+        Project {
             name: "Raito-Zig".to_string(),
             description: "A Zig TUI lightnovel reader".to_string(),
             period: "2024".to_string(),

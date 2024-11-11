@@ -20,6 +20,14 @@
           pkg-config
           # dioxus-cli
           zip
+
+          cargo
+          cargo-cache
+          cargo-expand
+          lldb
+          rust-analyzer
+          rustfmt
+          rustc
         ];
         LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
       };
