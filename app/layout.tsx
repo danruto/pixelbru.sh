@@ -19,9 +19,27 @@ const pixelifySans = Pixelify_Sans({
     variable: "--font-pixelify-sans",
 })
 
+const DEFAULT_TITLE = "Pixel Brush | Danny Sok | Full-stack Software Engineer | 10+ years experience"
+const DEFAULT_DESCRIPTION =
+    "Full-stack Software Engineer with 10+ years experience from greenfield to digital transformation ready to help you!"
 export const metadata: Metadata = {
-    title: "Pixel Brush | Danny Sok | Full-stack Engineer | 10+ years experience",
-    description: "Portfolio for Pixel Brush (Danny Sok)",
+    title: {
+        template: "%s | Pixel Brush",
+        default: DEFAULT_TITLE,
+    },
+    description: DEFAULT_DESCRIPTION,
+    keywords: ["Full stack", "Full-stack", "Software Engineer", "Contractor", "Hiring", "Senior", "Lead"],
+    authors: [{ name: "Danny", url: "https://pixelbru.sh" }],
+    openGraph: {
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        type: "website",
+    },
+    twitter: {
+        card: "summary",
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+    },
 }
 
 export default function RootLayout({
