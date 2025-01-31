@@ -32,7 +32,7 @@ const Footer = () => (
         <div className="max-w-[144px] grid grid-cols-3 gap-2">
             {CONTACT_POINTS.map((cp) => (
                 <a key={cp.name} href={cp.url} title={cp.name} target="_blank" rel="noreferrer">
-                    <Button variant="outline" size="icon" type="button">
+                    <Button variant="outline" size="icon" type="button" className="cursor-pointer">
                         <cp.icon width={24} height={24} />
                     </Button>
                 </a>

@@ -6,6 +6,7 @@ import { type VariantProps, cva } from "class-variance-authority"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
 import { ny } from "~/lib/utils"
+import { number } from "zod"
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
     className?: string
@@ -34,13 +35,13 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         },
         ref,
     ) => {
-        const mouseX = useMotionValue(Infinity)
+        const mouseX = useMotionValue(Number.POSITIVE_INFINITY)
 
         const renderChildren = () => {
             return React.Children.map(children, (child) => {
                 if (React.isValidElement(child) && child.type === DockIcon) {
                     return React.cloneElement(child, {
-                        ...child.props,
+                        ...(child.props as any),
                         mouseX,
                         magnification,
                         distance,
@@ -54,7 +55,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
             <motion.div
                 ref={ref}
                 onMouseMove={(e) => mouseX.set(e.pageX)}
-                onMouseLeave={() => mouseX.set(Infinity)}
+                onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
                 {...props}
                 className={ny(dockVariants({ className }), {
                     "items-start": direction === "top",
