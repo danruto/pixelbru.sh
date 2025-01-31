@@ -124,14 +124,6 @@ const config: Config = {
                         boxShadow: "0 0 0 8px var(--pulse-color)",
                     },
                 },
-                "marquee-vertical": {
-                    from: {
-                        transform: "translateY(0)",
-                    },
-                    to: {
-                        transform: "translateY(calc(-100% - var(--gap)))",
-                    },
-                },
             },
             animation: {
                 marquee: "marquee var(--duration) infinite linear",
@@ -142,7 +134,6 @@ const config: Config = {
                 gradient: "gradient 8s linear infinite",
                 rainbow: "rainbow var(--speed, 2s) infinite linear",
                 pulse: "pulse var(--duration) ease-out infinite",
-                "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
             },
         },
     },
