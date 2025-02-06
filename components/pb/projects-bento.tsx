@@ -32,7 +32,8 @@ const OPEN_SOURCE_PROJECTS = [
         description: "A Solid-Start app to track the bootcamp accounts of League of Legends Worlds 2024 participants",
         href: "https://worlds2024.pixelbru.sh",
         cta: "Visit the site!",
-        className: "col-span-1 lg:col-span-2 bg-background",
+        className:
+            "col-span-1 lg:col-span-2 bg-background before:bg-[url('/ttp-min.png')] before:bg-cover before:w-full before:h-full before:opacity-20",
         background: (
             <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
                 <AnimatedList>
@@ -65,11 +66,12 @@ const OPEN_SOURCE_PROJECTS = [
         Icon: BookOpenIcon,
         href: "https://github.com/danruto/raito-zig",
         cta: "See the source code!",
-        className: "col-span-1 lg:col-span-2 bg-background",
+        className:
+            "col-span-1 lg:col-span-2 bg-background before:bg-[url('/raito-zig.png')] before:bg-cover before:w-full before:h-full before:opacity-40",
         background: (
             <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
                 <AnimatedList>
-                    {Array.from({ length: 10 }, () => ["Zig", "Tuile", "SQLite", "Xata"])
+                    {Array.from({ length: 10 }, () => ["Zig", "Tuile", "SQLite", "Xata", "Postgres"])
                         .flat()
                         .map((item, idx) => (
                             // biome-ignore lint/suspicious/noArrayIndexKey: As we need to repeat the array, unique id's don't exist
@@ -129,11 +131,65 @@ const OPEN_SOURCE_PROJECTS = [
         Icon: Presentation,
         href: "https://retro.pixelbru.sh",
         cta: "Visit the site!",
+        className:
+            "col-span-1 lg:col-span-2 bg-background before:bg-[url('/retrotool.png')] before:bg-cover before:w-full before:h-full before:opacity-20",
+        background: (
+            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+                <AnimatedList>
+                    {Array.from({ length: 10 }, () => [
+                        "PNPM",
+                        "Biome",
+                        "TailwindCSS",
+                        "SolidJS",
+                        "Go",
+                        "Websockets",
+                        "Github Actions",
+                        "Docker",
+                    ])
+                        .flat()
+                        .map((item, idx) => (
+                            // biome-ignore lint/suspicious/noArrayIndexKey: As we need to repeat the array, unique id's don't exist
+                            <Badge key={idx}>{item}</Badge>
+                        ))}
+                </AnimatedList>
+            </div>
+        ),
+    },
+    {
+        id: "7",
+        name: "Contentful Client Go",
+        description:
+            "A helper library for consuming Contentful GraphQL in a typed manner with some light types and utility methods.",
+        Icon: Presentation,
+        href: "https://github.com/danruto/contentful-client-go",
+        cta: "View the source!",
         className: "col-span-1 lg:col-span-2 bg-background",
         background: (
             <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
                 <AnimatedList>
-                    {Array.from({ length: 10 }, () => ["TailwindCSS", "SolidJS", "Go", "Websockets", "Github Actions"])
+                    {Array.from({ length: 10 }, () => ["Go"])
+                        .flat()
+                        .map((item, idx) => (
+                            // biome-ignore lint/suspicious/noArrayIndexKey: As we need to repeat the array, unique id's don't exist
+                            <Badge key={idx}>{item}</Badge>
+                        ))}
+                </AnimatedList>
+            </div>
+        ),
+    },
+    {
+        id: "8",
+        name: "Friendly Words Go",
+        description:
+            "A little library to help you generate unique word lists for things like short urls, ids or any other friendly name scheme.",
+        Icon: Presentation,
+        href: "https://github.com/danruto/friendly-words-go",
+        cta: "View the source!",
+        className: "col-span-1 bg-background",
+        background: (
+            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+                <AnimatedList>
+                    {Array.from({ length: 10 }, () => ["Go"])
                         .flat()
                         .map((item, idx) => (
                             // biome-ignore lint/suspicious/noArrayIndexKey: As we need to repeat the array, unique id's don't exist

@@ -37,7 +37,10 @@ const CV: React.FC = () => (
             <TimelineContent>
                 <ul className="list-disc pl-4">
                     <li>Liasing with clients to build internal tooling for supporting Citrix products</li>
-                    <li>R&D on Windows 10 changes for Citrix product suite</li>
+                    <li>
+                        R&D on Windows 10 changes for Citrix product suite such as inspecting the new Metro App
+                        structures
+                    </li>
                     <li>Developing PoC and R&D Technologies for Citrix Healthcare verticals</li>
                 </ul>
             </TimelineContent>
@@ -89,6 +92,43 @@ const CV: React.FC = () => (
             <TimelineContent side="left">
                 <ul className="list-disc rtl pr-4">
                     <li>
+                        Implemented a custom system that was able to generate{" "}
+                        <span className="italic">INFINITE (300 million)</span> customisable briadsmaid dresses on the
+                        fly with very fast UX acheving page speeds of &gt;90
+                    </li>
+                    <li>
+                        Built the Agriculture Industry's first GraphQL API reducing developer complexity from chaining
+                        multiple different REST endpoints for the dataset
+                    </li>
+                    <li>
+                        Transformed existing systems to use said GraphQL API which improved user productivity manyfold,
+                        as evident by NPS surveys and collected metrics, users were able to finish within minutes rather
+                        than hours.
+                    </li>
+                    <li>
+                        Research and developed a multitude of PoCs for different scenarios in different stacks e.g. a
+                        geo-aware mapping solution, a custom compression for transferring offline data or data in
+                        slow/bad internet environments
+                    </li>
+                    <li>
+                        Built out a digitised version of{" "}
+                        <a
+                            className="text-blue-400"
+                            href="https://www.piccc.org.au/resources/Tools"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            PICC GAFs
+                        </a>{" "}
+                        that can produce almost instant results with less errors
+                    </li>
+                    <li>Built custom design systems for each client that required one</li>
+                    <li>Participated in multiple product transitions and knowledge handover sessions with clients</li>
+                    <li>
+                        Helped a Legal firm revamp an existing product to migrate from an old WPF application to a
+                        modern .NET Core stack with a NextJS frontend
+                    </li>
+                    <li>
                         Architected, built and deployed a variety of products onto cloud providers such as AWS, Azure
                         and GCP. The infrastructure was all IaC consuming the cloud providers SDK to ensure easy and
                         deterministic deployments of multiple environments.
@@ -103,37 +143,7 @@ const CV: React.FC = () => (
                         >
                             Reflectal
                         </a>{" "}
-                    </li>
-                    <li>
-                        Built out a digitised version of{" "}
-                        <a
-                            className="text-blue-400"
-                            href="https://www.piccc.org.au/resources/Tools"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            PICC GAFs
-                        </a>{" "}
-                        that can produce almost instant results with less errors
-                    </li>
-                    <li>
-                        Built the Agriculture Industry's first GraphQL API reducing developer complexity from chaining
-                        multiple different REST endpoints for the dataset
-                    </li>
-                    <li>
-                        Transformed existing systems to use said GraphQL API which improved user productivity manyfold,
-                        as evident by NPS surveys and collected metrics, users were able to finish within minutes rather
-                        than hours.
-                    </li>
-                    <li>
-                        R&D into the future of the Red Meat lifecycle where alternate technology can alleviate some pain
-                        like intermittant internet connectivity
-                    </li>
-                    <li>Built custom design systems for each client that required one</li>
-                    <li>
-                        Implemented a custom system that was able to generate{" "}
-                        <span className="italic">INFINITE (300 million)</span> customisable briadsmaid dresses on the
-                        fly with very fast UX acheving page speeds of &gt;90
+                        for their full stack near real time collaboration platform
                     </li>
                 </ul>
             </TimelineContent>

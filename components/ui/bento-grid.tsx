@@ -55,7 +55,7 @@ function BentoCard({
                 )}
             >
                 <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-                    <a href={href}>
+                    <a href={href} target="_blank" rel="noopener noreferrer">
                         {cta}
                         <ArrowRightIcon className="ml-2 size-4" />
                     </a>
