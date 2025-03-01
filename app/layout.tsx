@@ -4,6 +4,7 @@ import { Pixelify_Sans } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "~/components/ui/toaster"
 import Footer from "~/components/pb/footer"
+import { PostHogProvider } from "./providers"
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -50,17 +51,19 @@ export default function RootLayout({
 }>) {
     return (
         <html className="dark" lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable} bg-gradient-to-br from-slate-900 to-slate-950 antialiased flex flex-col items-center justify-center`}
-            >
-                <main className="container px-2 md:max-w-[1200px] min-h-screen font-[family-name:var(--font-geist-sans)]">
-                    {children}
-                </main>
-                <Toaster />
-                <footer>
-                    <Footer />
-                </footer>
-            </body>
+            <PostHogProvider>
+                <body
+                    className={`${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable} bg-gradient-to-br from-slate-900 to-slate-950 antialiased flex flex-col items-center justify-center`}
+                >
+                    <main className="container px-2 md:max-w-[1200px] min-h-screen font-[family-name:var(--font-geist-sans)]">
+                        {children}
+                    </main>
+                    <Toaster />
+                    <footer>
+                        <Footer />
+                    </footer>
+                </body>
+            </PostHogProvider>
         </html>
     )
 }

@@ -1,6 +1,14 @@
+// "use client"
+
 import { Contact } from "./contact"
 import { Logo } from "./logo"
 import { SkillsCloud } from "./skills-cloud"
+
+// import dynamic from "next/dynamic"
+
+// const SkillsCloud = dynamic(() => import("./skills-cloud"), {
+//     ssr: false,
+// })
 
 const Hero: React.FC = () => (
     <section className="py-20 md:py-60">
