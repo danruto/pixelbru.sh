@@ -149,6 +149,31 @@ const CV: React.FC = () => (
             </TimelineContent>
         </TimelineItem>
         <TimelineItem>
+            <TimelineHeading side="right">
+                Terem - <span className="text-indigo-200">Senior Golang Engineer</span>
+            </TimelineHeading>
+            <TimelineHeading side="left" variant="secondary">
+                MAR 2025 - CURRENT, Sydney
+            </TimelineHeading>
+            <TimelineDot status="current" />
+            <TimelineLine done />
+            <TimelineContent side="right">
+                <ul className="list-disc pl-4">
+                    <li>
+                        Building large data processing pipelines in{" "}
+                        <a
+                            className="text-blue-400"
+                            href="https://temporal.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Temporal
+                        </a>
+                    </li>
+                </ul>
+            </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
             <TimelineDot />
             <TimelineHeading>Could be your organisation!</TimelineHeading>
             <TimelineHeading side="left" variant="secondary">

@@ -20,6 +20,7 @@
           nodePackages.vscode-langservers-extracted
           tailwindcss-language-server
           biome
+          bun
         ];
         LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
       };
