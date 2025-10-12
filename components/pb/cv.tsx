@@ -82,6 +82,17 @@ const CV: React.FC = () => (
         </TimelineItem>
         <TimelineItem>
             <TimelineHeading side="left">
+                Pixel Brush - <span className="text-indigo-200">Director</span>
+            </TimelineHeading>
+            <TimelineHeading side="right" variant="secondary">
+                OCT 2017 - CURRENT, Sydney
+            </TimelineHeading>
+            <TimelineDot status="current" />
+            <TimelineLine done />
+            <TimelineContent side="left"></TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+            <TimelineHeading side="left">
                 Hello Human - <span className="text-indigo-200">Principal Full Stack Software Engineer</span>
             </TimelineHeading>
             <TimelineHeading side="right" variant="secondary">
@@ -188,20 +199,16 @@ const CV: React.FC = () => (
         </TimelineItem>
         <TimelineItem>
             <TimelineHeading side="left">
-                Pixel Brush - <span className="text-indigo-200">Director</span>
+                Pixel Brush - <span className="text-indigo-200">Contractor</span>
             </TimelineHeading>
             <TimelineHeading side="right" variant="secondary">
-                OCT 2017 - CURRENT, Sydney
+                AUG 2025 - CURRENT, Sydney
             </TimelineHeading>
             <TimelineDot status="current" />
             <TimelineLine done />
-            <TimelineContent side="left">
-                <ul className="list-disc rtl pr-4">
-                    <li>
-                        Implementing a breast cancer detection system using machine learning algorithms in Python, .NET
-                        Core, and NextJS
-                    </li>
-                    <li>DevOps implementation within the organisation with heavy constraints</li>
+            <TimelineContent side="right">
+                <ul className="list-disc pl-4">
+                    <li>Current project is implementing an AI-powered cancer detection system</li>
                 </ul>
             </TimelineContent>
         </TimelineItem>
