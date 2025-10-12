@@ -1,13 +1,7 @@
 import type { ReactNode } from "react"
 import { ny } from "~/lib/utils"
 
-export default function AnimatedGradientText({
-    children,
-    className,
-}: {
-    children: ReactNode
-    className?: string
-}) {
+export default function AnimatedGradientText({ children, className }: { children: ReactNode; className?: string }) {
     return (
         <div
             className={ny(

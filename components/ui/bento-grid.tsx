@@ -3,13 +3,7 @@ import type { ReactNode } from "react"
 import { Button } from "~/components/ui/button"
 import { ny } from "~/lib/utils"
 
-function BentoGrid({
-    children,
-    className,
-}: {
-    children: ReactNode
-    className?: string
-}) {
+function BentoGrid({ children, className }: { children: ReactNode; className?: string }) {
     return <div className={ny("grid w-full auto-rows-[22rem] grid-cols-3 gap-4", className)}>{children}</div>
 }
 

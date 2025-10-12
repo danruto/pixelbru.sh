@@ -168,8 +168,40 @@ const CV: React.FC = () => (
                             rel="noopener noreferrer"
                         >
                             Temporal
+                        </a>{" "}
+                        for the geospatial data applications.
+                    </li>
+                    <li>
+                        Implementing and designing best practices for distributed systems using{" "}
+                        <a
+                            className="text-blue-400"
+                            href="https://temporal.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Temporal
                         </a>
                     </li>
+                    <li>Implemented microservices for interacting with large data efficiently</li>
+                </ul>
+            </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+            <TimelineHeading side="left">
+                Pixel Brush - <span className="text-indigo-200">Director</span>
+            </TimelineHeading>
+            <TimelineHeading side="right" variant="secondary">
+                OCT 2017 - CURRENT, Sydney
+            </TimelineHeading>
+            <TimelineDot status="current" />
+            <TimelineLine done />
+            <TimelineContent side="left">
+                <ul className="list-disc rtl pr-4">
+                    <li>
+                        Implementing a breast cancer detection system using machine learning algorithms in Python, .NET
+                        Core, and NextJS
+                    </li>
+                    <li>DevOps implementation within the organisation with heavy constraints</li>
                 </ul>
             </TimelineContent>
         </TimelineItem>
