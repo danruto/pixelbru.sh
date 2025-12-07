@@ -57,7 +57,7 @@ const CV: React.FC = () => (
             <TimelineContent side="left">
                 <ul className="list-disc rtl pr-4">
                     <li>
-                        Implemented smart building access via mobile phone bluetooth for HID controlled systems e.g.
+                        Implemented smart building access via mobile phone bluetooth for HID controlled systems such as
                         Elevators
                     </li>
                     <li>Built R&D tooling to support smart building functionality</li>
@@ -117,7 +117,7 @@ const CV: React.FC = () => (
                         than hours.
                     </li>
                     <li>
-                        Research and developed a multitude of PoCs for different scenarios in different stacks e.g. a
+                        Research and developed a multitude of PoCs for different scenarios in different stacks such as a
                         geo-aware mapping solution, a custom compression for transferring offline data or data in
                         slow/bad internet environments
                     </li>
@@ -137,12 +137,12 @@ const CV: React.FC = () => (
                     <li>Participated in multiple product transitions and knowledge handover sessions with clients</li>
                     <li>
                         Helped a Legal firm revamp an existing product to migrate from an old WPF application to a
-                        modern .NET Core stack with a NextJS frontend
+                        modern dotNET Core stack with a NextJS frontend
                     </li>
                     <li>
                         Architected, built and deployed a variety of products onto cloud providers such as AWS, Azure
                         and GCP. The infrastructure was all IaC consuming the cloud providers SDK to ensure easy and
-                        deterministic deployments of multiple environments.
+                        deterministic deployments of multiple environments
                     </li>
                     <li>
                         Built the initial offering product for{" "}
@@ -164,9 +164,9 @@ const CV: React.FC = () => (
                 Terem - <span className="text-indigo-200">Senior Golang Engineer</span>
             </TimelineHeading>
             <TimelineHeading side="left" variant="secondary">
-                MAR 2025 - CURRENT, Sydney
+                MAR 2025 - OCT 2025, Sydney
             </TimelineHeading>
-            <TimelineDot status="current" />
+            <TimelineDot status="done" />
             <TimelineLine done />
             <TimelineContent side="right">
                 <ul className="list-disc pl-4">
@@ -180,7 +180,7 @@ const CV: React.FC = () => (
                         >
                             Temporal
                         </a>{" "}
-                        for the geospatial data applications.
+                        for the geospatial data applications
                     </li>
                     <li>
                         Implementing and designing best practices for distributed systems using{" "}
@@ -199,10 +199,48 @@ const CV: React.FC = () => (
         </TimelineItem>
         <TimelineItem>
             <TimelineHeading side="left">
-                Pixel Brush - <span className="text-indigo-200">Contractor</span>
+                Nearmap - <span className="text-indigo-200">Senior Software Engineer</span>
             </TimelineHeading>
             <TimelineHeading side="right" variant="secondary">
-                AUG 2025 - CURRENT, Sydney
+                NOV 2025 - CURRENT, Sydney
+            </TimelineHeading>
+            <TimelineDot status="current" />
+            <TimelineLine done />
+            <TimelineContent side="left">
+                <ul className="list-disc rtl pr-4">
+                    <li>
+                        Building large data processing pipelines in{" "}
+                        <a
+                            className="text-blue-400"
+                            href="https://temporal.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Temporal
+                        </a>{" "}
+                        for the geospatial data applications
+                    </li>
+                    <li>
+                        Implementing and designing best practices for distributed systems using{" "}
+                        <a
+                            className="text-blue-400"
+                            href="https://temporal.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Temporal
+                        </a>
+                    </li>
+                    <li>Implemented microservices for interacting with large data efficiently</li>
+                </ul>
+            </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+            <TimelineHeading side="right">
+                Pixel Brush - <span className="text-indigo-200">Director</span>
+            </TimelineHeading>
+            <TimelineHeading side="left" variant="secondary">
+                OCT 2017 - CURRENT, Sydney
             </TimelineHeading>
             <TimelineDot status="current" />
             <TimelineLine done />
@@ -212,13 +250,13 @@ const CV: React.FC = () => (
                 </ul>
             </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
+        {/*<TimelineItem>
             <TimelineDot />
             <TimelineHeading>Could be your organisation!</TimelineHeading>
             <TimelineHeading side="left" variant="secondary">
                 Currently available for hire
             </TimelineHeading>
-        </TimelineItem>
+        </TimelineItem>*/}
     </Timeline>
 )
 
