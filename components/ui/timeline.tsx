@@ -1,7 +1,7 @@
-import React from "react"
 import { CheckIcon, Cross1Icon } from "@radix-ui/react-icons"
 import type { VariantProps } from "class-variance-authority"
 import { cva } from "class-variance-authority"
+import React from "react"
 
 import { ny } from "~/lib/utils"
 
@@ -57,8 +57,8 @@ const timelineDotVariants = cva(
             status: {
                 default: "[&>*]:hidden",
                 current: "[&>*:not(.radix-circle)]:hidden [&>.radix-circle]:bg-current [&>.radix-circle]:fill-current",
-                done: "bg-primary [&>*:not(.radix-check)]:hidden [&>.radix-check]:text-background",
-                error: "border-destructive bg-destructive [&>*:not(.radix-cross)]:hidden [&>.radix-cross]:text-background",
+                done: "bg-primary [&>.radix-check]:text-background [&>*:not(.radix-check)]:hidden",
+                error: "border-destructive bg-destructive [&>.radix-cross]:text-background [&>*:not(.radix-cross)]:hidden",
                 custom: "[&>*:not(:nth-child(4))]:hidden [&>*:nth-child(4)]:block",
             },
         },
@@ -89,7 +89,7 @@ const TimelineDot = React.forwardRef<HTMLDivElement, TimelineDotProps>(
 )
 TimelineDot.displayName = "TimelineDot"
 
-const timelineContentVariants = cva("row-start-2 row-end-2 pb-8 text-muted-foreground", {
+const timelineContentVariants = cva("text-muted-foreground row-start-2 row-end-2 pb-8", {
     variants: {
         side: {
             right: "col-start-3 col-end-4 mr-auto text-left",
@@ -102,8 +102,7 @@ const timelineContentVariants = cva("row-start-2 row-end-2 pb-8 text-muted-foreg
 })
 
 interface TimelineConentProps
-    extends React.HTMLAttributes<HTMLDivElement>,
-        VariantProps<typeof timelineContentVariants> {}
+    extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof timelineContentVariants> {}
 
 const TimelineContent = React.forwardRef<HTMLDivElement, TimelineConentProps>(({ className, side, ...props }, ref) => (
     <div className={ny(timelineContentVariants({ side }), className)} ref={ref} {...props} />
@@ -117,8 +116,8 @@ const timelineHeadingVariants = cva("row-start-1 row-end-1 line-clamp-1 max-w-fu
             left: "col-start-1 col-end-2 ml-auto text-right",
         },
         variant: {
-            primary: "text-base font-medium text-primary",
-            secondary: "text-sm font-light text-muted-foreground",
+            primary: "text-primary text-base font-medium",
+            secondary: "text-muted-foreground text-sm font-light",
         },
     },
     defaultVariants: {
@@ -128,8 +127,7 @@ const timelineHeadingVariants = cva("row-start-1 row-end-1 line-clamp-1 max-w-fu
 })
 
 interface TimelineHeadingProps
-    extends React.HTMLAttributes<HTMLParagraphElement>,
-        VariantProps<typeof timelineHeadingVariants> {}
+    extends React.HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof timelineHeadingVariants> {}
 
 const TimelineHeading = React.forwardRef<HTMLParagraphElement, TimelineHeadingProps>(
     ({ className, side, variant, ...props }, ref) => (

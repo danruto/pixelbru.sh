@@ -1,5 +1,6 @@
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
 import { Globe } from "lucide-react"
+
 import { Button } from "~/components/ui/button"
 
 interface IContactPoint {
@@ -28,8 +29,8 @@ const CONTACT_POINTS: IContactPoint[] = [
 ]
 
 const Footer = () => (
-    <footer className="py-8 space-y-4 flex flex-col items-center">
-        <div className="max-w-[144px] grid grid-cols-3 gap-2">
+    <footer className="flex flex-col items-center space-y-4 py-8">
+        <div className="grid max-w-[144px] grid-cols-3 gap-2">
             {CONTACT_POINTS.map((cp) => (
                 <a key={cp.name} href={cp.url} title={cp.name} target="_blank" rel="noreferrer">
                     <Button variant="outline" size="icon" type="button" className="cursor-pointer">

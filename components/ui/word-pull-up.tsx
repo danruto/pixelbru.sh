@@ -2,6 +2,7 @@
 
 import type { Variants } from "framer-motion"
 import { motion } from "framer-motion"
+
 import { ny } from "~/lib/utils"
 
 interface WordPullUpProps {

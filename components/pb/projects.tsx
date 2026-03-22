@@ -1,11 +1,12 @@
-import { MagicCard, MagicContainer } from "~/components/ui/magic-card"
-import { Button } from "~/components/ui/button"
-import { Badge } from "~/components/ui/badge"
-import { ny } from "~/lib/utils"
-import Marquee from "~/components/ui/marquee"
-import { Globe } from "lucide-react"
-import BoxReveal from "~/components/ui/box-reveal"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
+import { Globe } from "lucide-react"
+
+import { Badge } from "~/components/ui/badge"
+import BoxReveal from "~/components/ui/box-reveal"
+import { Button } from "~/components/ui/button"
+import { MagicCard, MagicContainer } from "~/components/ui/magic-card"
+import Marquee from "~/components/ui/marquee"
+import { ny } from "~/lib/utils"
 
 interface IProject {
     name: string
@@ -180,16 +181,16 @@ const PROJECT_LIST: IProject[] = [
 ]
 
 const Projects = () => (
-    <MagicContainer className="w-full lg:flex-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <MagicContainer className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:flex-row">
         {PROJECT_LIST.map((project) => (
             <MagicCard
                 key={project.name}
-                className="w-full overflow-hidden bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#c7d2fe_0,#818cf8_50%,transparent_100%)] p-4 shadow-2xl bg-indigo-300 dark:bg-indigo-600"
+                className="w-full overflow-hidden bg-indigo-300 bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#c7d2fe_0,#818cf8_50%,transparent_100%)] p-4 shadow-2xl dark:bg-indigo-600"
             >
-                <div className="w-full h-full flex flex-col justify-between">
-                    <div className="flex justify-between items-baseline">
+                <div className="flex h-full w-full flex-col justify-between">
+                    <div className="flex items-baseline justify-between">
                         <BoxReveal boxColor="#c7d2fe" duration={0.5}>
-                            <h3 className="font-semibold text-xl">{project.name}</h3>
+                            <h3 className="text-xl font-semibold">{project.name}</h3>
                         </BoxReveal>
                         <span
                             className={ny("grid gap-2", {

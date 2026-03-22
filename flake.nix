@@ -19,7 +19,8 @@
           nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
           tailwindcss-language-server
-          biome
+          oxlint
+          oxfmt
           bun
           wrangler
         ];

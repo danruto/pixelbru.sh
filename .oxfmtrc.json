@@ -1,0 +1,19 @@
+{
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": false,
+    "singleQuote": false,
+    "semi": false,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "insertFinalNewline": true,
+    "sortImports": {
+        "internalPattern": ["~/"]
+    },
+    "sortTailwindcss": {
+        "functions": ["cn", "clsx", "cva"]
+    },
+    "ignorePatterns": [".next/", "node_modules/", "out/", "dist/", "next-env.d.ts"]
+}

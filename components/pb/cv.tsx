@@ -19,7 +19,7 @@ const CV: React.FC = () => (
             <TimelineDot status="done" />
             <TimelineLine done />
             <TimelineContent side="left">
-                <ul className="list-disc rtl pr-4">
+                <ul className="rtl list-disc pr-4">
                     <li>Troubleshooting and fixing software issues on-site</li>
                     <li>Client liasing and support</li>
                 </ul>
@@ -55,7 +55,7 @@ const CV: React.FC = () => (
             <TimelineDot status="done" />
             <TimelineLine done />
             <TimelineContent side="left">
-                <ul className="list-disc rtl pr-4">
+                <ul className="rtl list-disc pr-4">
                     <li>
                         Implemented smart building access via mobile phone bluetooth for HID controlled systems such as
                         Elevators
@@ -101,7 +101,7 @@ const CV: React.FC = () => (
             <TimelineDot status="done" />
             <TimelineLine done />
             <TimelineContent side="left">
-                <ul className="list-disc rtl pr-4">
+                <ul className="rtl list-disc pr-4">
                     <li>
                         Implemented a custom system that was able to generate{" "}
                         <span className="italic">INFINITE (300 million)</span> customisable briadsmaid dresses on the
@@ -207,7 +207,7 @@ const CV: React.FC = () => (
             <TimelineDot status="current" />
             <TimelineLine done />
             <TimelineContent side="left">
-                <ul className="list-disc rtl pr-4">
+                <ul className="rtl list-disc pr-4">
                     <li>
                         Building large data processing pipelines in{" "}
                         <a

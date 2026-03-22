@@ -1,6 +1,8 @@
 import { BookOpenIcon, Globe, Joystick, Presentation, TerminalIcon } from "lucide-react"
-import { BentoCard, BentoGrid } from "~/components/ui/bento-grid"
+
 import { AnimatedList } from "~/components/ui/animated-list"
+import { BentoCard, BentoGrid } from "~/components/ui/bento-grid"
+
 import { Badge } from "../ui/badge"
 
 const OPEN_SOURCE_PROJECTS = [
@@ -13,7 +15,7 @@ const OPEN_SOURCE_PROJECTS = [
         cta: "See the source code!",
         className: "col-span-1 bg-background",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["NextJS", "NyxbUI", "TailwindCSS", "Biome", "Vercel", "PNPM"])
                         .flat()
@@ -35,7 +37,7 @@ const OPEN_SOURCE_PROJECTS = [
         className:
             "col-span-1 lg:col-span-2 bg-background before:bg-[url('/ttp-min.png')] before:bg-cover before:w-full before:h-full before:opacity-20",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => [
                         "Solid-Start",
@@ -69,7 +71,7 @@ const OPEN_SOURCE_PROJECTS = [
         className:
             "col-span-1 lg:col-span-2 bg-background before:bg-[url('/raito-zig.png')] before:bg-cover before:w-full before:h-full before:opacity-40",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["Zig", "Tuile", "SQLite", "Xata", "Postgres"])
                         .flat()
@@ -90,7 +92,7 @@ const OPEN_SOURCE_PROJECTS = [
         cta: "See the source code!",
         className: "col-span-1 bg-background",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["TailwindCSS", "Dioxus", "Rust"])
                         .flat()
@@ -111,7 +113,7 @@ const OPEN_SOURCE_PROJECTS = [
         cta: "See the source code!",
         className: "col-span-1 bg-background",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["Nix", "Lua", "KDL", "TOML"])
                         .flat()
@@ -134,7 +136,7 @@ const OPEN_SOURCE_PROJECTS = [
         className:
             "col-span-1 lg:col-span-2 bg-background before:bg-[url('/retrotool.png')] before:bg-cover before:w-full before:h-full before:opacity-20",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => [
                         "PNPM",
@@ -165,7 +167,7 @@ const OPEN_SOURCE_PROJECTS = [
         cta: "View the source!",
         className: "col-span-1 lg:col-span-2 bg-background",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["Go"])
                         .flat()
@@ -187,7 +189,7 @@ const OPEN_SOURCE_PROJECTS = [
         cta: "View the source!",
         className: "col-span-1 bg-background",
         background: (
-            <div className="absolute top-10 bottom-10 [--duration:5s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20">
+            <div className="absolute top-10 bottom-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] px-20 [--duration:5s]">
                 <AnimatedList>
                     {Array.from({ length: 10 }, () => ["Go"])
                         .flat()

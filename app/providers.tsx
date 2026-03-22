@@ -1,11 +1,11 @@
 "use client"
 
 import { usePathname, useSearchParams } from "next/navigation"
-import { useEffect, Suspense } from "react"
-import { usePostHog } from "posthog-js/react"
-
+// oxlint-disable-next-line import/no-named-as-default
 import posthog from "posthog-js"
+import { usePostHog } from "posthog-js/react"
 import { PostHogProvider as PHProvider } from "posthog-js/react"
+import { useEffect, Suspense } from "react"
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
@@ -27,6 +27,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
 function PostHogPageView() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
+    // oxlint-disable-next-line no-shadow
     const posthog = usePostHog()
 
     // Track pageviews

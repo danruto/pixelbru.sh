@@ -1,8 +1,8 @@
 "use client"
 
-import { useRef } from "react"
 import type { Variants } from "framer-motion"
 import { AnimatePresence, motion, useInView } from "framer-motion"
+import { useRef } from "react"
 
 interface BlurFadeProps {
     children: React.ReactNode

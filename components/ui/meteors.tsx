@@ -10,7 +10,7 @@ export function Meteors({ number = 20 }: MeteorsProps) {
     const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>([])
 
     useEffect(() => {
-        const styles = [...new Array(number)].map(() => ({
+        const styles = new Array(number).fill().map(() => ({
             top: -5,
             left: `${Math.floor(Math.random() * window.innerWidth)}px`,
             animationDelay: `${Math.random() * 1 + 0.2}s`,
@@ -26,7 +26,7 @@ export function Meteors({ number = 20 }: MeteorsProps) {
                 <span
                     key={idx}
                     className={clsx(
-                        "pointer-events-none absolute left-1/2 top-1/2 h-0.5 w-0.5 rotate-[215deg] animate-meteor rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10]",
+                        "animate-meteor pointer-events-none absolute top-1/2 left-1/2 h-0.5 w-0.5 rotate-[215deg] rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10]",
                     )}
                     style={style}
                 >

@@ -14,13 +14,13 @@ const Hero: React.FC = () => (
     <section className="py-20 md:py-60">
         <Logo />
 
-        <section className="grid grid-cols-1 md:grid-cols-2 px-8 py-2">
-            <article className="bg-slate-950/85 p-8 flex justify-center flex-col rounded-xl">
-                <h1 className="font-[family-name:Var(--font-pixelify-sans)] text-7xl italic thick-masked-underline tw-stroke self-center">
+        <section className="grid grid-cols-1 px-8 py-2 md:grid-cols-2">
+            <article className="flex flex-col justify-center rounded-xl bg-slate-950/85 p-8">
+                <h1 className="thick-masked-underline tw-stroke self-center font-[family-name:Var(--font-pixelify-sans)] text-7xl italic">
                     HELLO 👋🏾
                 </h1>
 
-                <p className="text-lg mb-4">
+                <p className="mb-4 text-lg">
                     Nice to meet you! My name is <span className="text-indigo-200">Danny</span>
                 </p>
 

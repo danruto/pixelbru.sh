@@ -1,4 +1,5 @@
 import Marquee from "~/components/ui/marquee"
+
 import { Badge } from "../ui/badge"
 
 const TECH_SKILLS = [
