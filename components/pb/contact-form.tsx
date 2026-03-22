@@ -1,10 +1,8 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useActionState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { sendMessageToDiscord } from "~/app/actions"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { Textarea } from "~/components/ui/textarea"
@@ -24,8 +22,8 @@ interface IProps {
 const ContactForm: React.FC<IProps> = ({ close }) => {
     const {
         register,
+        handleSubmit,
         formState: { errors },
-        trigger,
     } = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -38,27 +36,34 @@ const ContactForm: React.FC<IProps> = ({ close }) => {
 
     const { toast } = useToast()
 
-    const [, formAction] = useActionState(sendMessageToDiscord, { status: "success" })
+    const onSubmit = async (data: z.infer<typeof formSchema>) => {
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            })
+
+            if (!res.ok) {
+                throw new Error("Failed to send message")
+            }
+
+            toast({
+                title: "Thanks!",
+                description: "Your message has been received.",
+            })
+            close()
+        } catch {
+            toast({
+                title: "Error",
+                description: "Failed to send your message. Please try again.",
+                variant: "destructive",
+            })
+        }
+    }
 
     return (
-        <form
-            action={formAction}
-            onSubmit={async (event) => {
-                const isValid = await trigger()
-
-                if (!isValid) {
-                    event?.preventDefault()
-                    return
-                }
-
-                event?.currentTarget?.requestSubmit()
-                toast({
-                    title: "Thanks!",
-                    description: "Your message has been received.",
-                })
-                close()
-            }}
-        >
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-2 pb-4">
                 <Input {...register("name")} placeholder="Your name" />
                 {errors?.name && <p className="text-red">{errors.name.message}</p>}

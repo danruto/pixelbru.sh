@@ -1,0 +1,14 @@
+name = "pixelbru-sh"
+main = "functions/api/contact.ts"
+compatibility_date = "2024-12-01"
+
+[assets]
+directory = "out"
+
+[[routes]]
+pattern = "pixelbru.sh/*"
+custom_domain = true
+
+[[routes]]
+pattern = "www.pixelbru.sh/*"
+custom_domain = true

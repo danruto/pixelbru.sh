@@ -8,7 +8,8 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
+        "preview": "wrangler pages dev out",
+        "deploy": "wrangler pages deploy out",
         "fmt": "biome format ./ --write",
         "fix": "biome check ./ --write",
         "lint": "biome lint ./ --write",
@@ -44,6 +45,7 @@
         "zod": "^4.1.13"
     },
     "devDependencies": {
+        "@cloudflare/workers-types": "^4.20260317.1",
         "@types/node": "^24.10.1",
         "@types/react": "^19.2.7",
         "@types/react-dom": "^19.2.3",

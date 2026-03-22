@@ -8,3 +8,4 @@ public.zip
 node_modules
 .env
 .next
+out/

@@ -21,6 +21,7 @@
           tailwindcss-language-server
           biome
           bun
+          wrangler
         ];
         LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
       };
