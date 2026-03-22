@@ -10,7 +10,7 @@ export function Meteors({ number = 20 }: MeteorsProps) {
     const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>([])
 
     useEffect(() => {
-        const styles = new Array(number).fill().map(() => ({
+        const styles = new Array(number).fill(null).map(() => ({
             top: -5,
             left: `${Math.floor(Math.random() * window.innerWidth)}px`,
             animationDelay: `${Math.random() * 1 + 0.2}s`,
