@@ -1,46 +1,48 @@
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
 import { Globe } from "lucide-react"
+import { siGithub } from "simple-icons"
 
 import { Button } from "~/components/ui/button"
 
-interface IContactPoint {
-    name: string
-    url: string
-    // biome-ignore lint/suspicious/noExplicitAny: Any child prop
-    icon: (args?: any) => React.ReactNode
-}
+import { BrandIcon, LINKEDIN_ICON } from "./brand-icon"
+import { Logo } from "./logo"
 
-const CONTACT_POINTS: IContactPoint[] = [
+const CONTACT_POINTS = [
     {
-        name: "Github",
+        name: "GitHub",
         url: "https://github.com/danruto",
-        icon: GitHubLogoIcon,
+        icon: <BrandIcon icon={siGithub} />,
     },
     {
         name: "Website",
         url: "https://pixelbru.sh",
-        icon: Globe,
+        icon: <Globe />,
     },
     {
         name: "LinkedIn",
         url: "https://au.linkedin.com/in/dannysok",
-        icon: LinkedInLogoIcon,
+        icon: <BrandIcon icon={LINKEDIN_ICON} />,
     },
 ]
 
-const Footer = () => (
-    <footer className="flex flex-col items-center space-y-4 py-8">
-        <div className="grid max-w-[144px] grid-cols-3 gap-2">
-            {CONTACT_POINTS.map((cp) => (
-                <a key={cp.name} href={cp.url} title={cp.name} target="_blank" rel="noreferrer">
-                    <Button variant="outline" size="icon" type="button" className="cursor-pointer">
-                        <cp.icon width={24} height={24} />
-                    </Button>
-                </a>
-            ))}
+const Footer: React.FC = () => (
+    <footer className="border-t">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 md:flex-row md:px-6">
+            <div className="flex flex-col items-center gap-1 md:items-start">
+                <Logo className="text-lg" />
+                <p className="text-muted-foreground text-sm">© Pixel Brush Pty. Ltd. {new Date().getUTCFullYear()}</p>
+            </div>
+            <ul className="flex gap-2">
+                {CONTACT_POINTS.map((cp) => (
+                    <li key={cp.name}>
+                        <Button variant="ghost" size="icon" asChild>
+                            <a href={cp.url} title={cp.name} aria-label={cp.name} target="_blank" rel="noreferrer">
+                                {cp.icon}
+                            </a>
+                        </Button>
+                    </li>
+                ))}
+            </ul>
         </div>
-
-        <p className="text-slate-600">© Pixel Brush Pty. Ltd. {new Date().getUTCFullYear()}</p>
     </footer>
 )
 

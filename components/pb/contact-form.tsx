@@ -1,31 +1,37 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { z } from "zod"
 
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { Textarea } from "~/components/ui/textarea"
-import { useToast } from "~/hooks/use-toast"
 
 const formSchema = z.object({
-    name: z.string().min(2).max(100),
-    email: z.string().email().min(2),
+    name: z.string().trim().min(2, "Please enter your name").max(100),
+    email: z.email("Please enter a valid email address"),
     company: z.string().max(100).optional(),
-    message: z.string().min(2).max(1000),
+    message: z.string().trim().min(2, "Please tell me a little about your project").max(1000),
 })
+
+type FormValues = z.infer<typeof formSchema>
 
 interface IProps {
     close: () => void
 }
 
+const FieldError: React.FC<{ message?: string }> = ({ message }) =>
+    message ? <p className="text-destructive text-sm">{message}</p> : null
+
 const ContactForm: React.FC<IProps> = ({ close }) => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
-    } = useForm<z.infer<typeof formSchema>>({
+        formState: { errors, isSubmitting },
+    } = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -35,9 +41,7 @@ const ContactForm: React.FC<IProps> = ({ close }) => {
         },
     })
 
-    const { toast } = useToast()
-
-    const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const onSubmit = async (data: FormValues) => {
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
@@ -49,33 +53,33 @@ const ContactForm: React.FC<IProps> = ({ close }) => {
                 throw new Error("Failed to send message")
             }
 
-            toast({
-                title: "Thanks!",
-                description: "Your message has been received.",
-            })
+            toast.success("Thanks!", { description: "Your message has been received." })
             close()
         } catch {
-            toast({
-                title: "Error",
-                description: "Failed to send your message. Please try again.",
-                variant: "destructive",
-            })
+            toast.error("Error", { description: "Failed to send your message. Please try again." })
         }
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid gap-2 pb-4">
-                <Input {...register("name")} placeholder="Your name" />
-                {errors?.name && <p className="text-red">{errors.name.message}</p>}
-                <Input {...register("email")} placeholder="Your email" />
-                {errors?.email && <p className="text-red">{errors.email.message}</p>}
-                <Input {...register("company")} placeholder="Your company" />
-                <Textarea {...register("message")} placeholder="Your contact request" rows={8} />
-                {errors?.message && <p className="text-red">{errors.message.message}</p>}
+        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4" noValidate>
+            <div className="grid gap-3">
+                <Input {...register("name")} placeholder="Your name" aria-invalid={!!errors.name} />
+                <FieldError message={errors.name?.message} />
+                <Input {...register("email")} type="email" placeholder="Your email" aria-invalid={!!errors.email} />
+                <FieldError message={errors.email?.message} />
+                <Input {...register("company")} placeholder="Your company (optional)" />
+                <Textarea
+                    {...register("message")}
+                    placeholder="Tell me about your project"
+                    rows={6}
+                    className="min-h-32"
+                    aria-invalid={!!errors.message}
+                />
+                <FieldError message={errors.message?.message} />
             </div>
-            <Button className="w-full" type="submit" variant={"outline"}>
-                Send
+            <Button className="w-full" type="submit" variant="brand" disabled={isSubmitting}>
+                {isSubmitting && <Loader2 className="animate-spin" />}
+                Send message
             </Button>
         </form>
     )
