@@ -127,6 +127,14 @@
         @apply bg-background text-foreground font-sans antialiased;
     }
 
+    /* Tailwind v4 resets buttons to the default cursor; make anything clickable obvious */
+    button:not(:disabled),
+    [role="button"]:not([aria-disabled="true"]),
+    summary,
+    label[for] {
+        cursor: pointer;
+    }
+
     ::selection {
         @apply bg-brand/30;
     }

@@ -14,6 +14,7 @@ import {
 } from "~/components/ui/dialog"
 
 import { ContactForm } from "./contact-form"
+import { Spotlight } from "./spotlight"
 
 interface IContactProps extends Pick<React.ComponentProps<typeof Button>, "size" | "variant" | "className"> {
     label?: string
@@ -45,7 +46,7 @@ const Contact: React.FC<IContactProps> = ({ label = "Get in touch", ...buttonPro
 
 const ContactSection: React.FC = () => (
     <section id="contact" className="mx-auto max-w-6xl px-4 pb-24 md:px-6 md:pb-32">
-        <div className="bg-card/50 relative isolate overflow-hidden rounded-3xl border px-6 py-16 text-center md:px-16 md:py-24">
+        <Spotlight className="bg-card/50 overflow-hidden rounded-3xl border px-6 py-16 text-center md:px-16 md:py-24">
             <div
                 aria-hidden
                 className="bg-grid absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_center,black_10%,transparent_70%)]"
@@ -64,7 +65,7 @@ const ContactSection: React.FC = () => (
             <div className="mt-8 flex justify-center">
                 <Contact size="lg" variant="brand" />
             </div>
-        </div>
+        </Spotlight>
     </section>
 )
 

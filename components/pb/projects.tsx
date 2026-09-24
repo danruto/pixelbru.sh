@@ -144,7 +144,8 @@ const ProjectCard: React.FC<{ project: IProject }> = ({ project }) => {
                         </li>
                     ))}
                 </ul>
-                <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-2">
+                {/* The row itself lets clicks through to the card link; only the buttons capture them */}
+                <div className="pointer-events-none relative z-10 mt-auto flex flex-wrap gap-2 pt-2 [&>*]:pointer-events-auto">
                     {project.site && (
                         <Button size="sm" variant="outline" asChild>
                             <a href={project.site} target="_blank" rel="noopener noreferrer">
