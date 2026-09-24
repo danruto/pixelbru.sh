@@ -36,6 +36,17 @@
 
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-blink: blink 1.1s step-end infinite;
+    /* Types the wordmark out one character at a time; the width is in ch as the font is monospace */
+    --animate-type: type var(--type-duration) steps(var(--chars), end) var(--type-delay) both;
+
+    @keyframes type {
+        from {
+            width: 0;
+        }
+        to {
+            width: calc(var(--chars) * 1ch);
+        }
+    }
 
     @keyframes blink {
         50% {
