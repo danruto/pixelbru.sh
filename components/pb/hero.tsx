@@ -17,11 +17,11 @@ const Hero: React.FC = () => (
     <Spotlight id="top" className="overflow-hidden">
         <div
             aria-hidden
-            className="bg-grid absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"
+            className="bg-grid pointer-events-none absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"
         />
         <div
             aria-hidden
-            className="bg-brand/20 absolute -top-40 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full blur-3xl"
+            className="bg-brand/20 pointer-events-none absolute -top-40 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full blur-3xl"
         />
 
         <div className="animate-in fade-in slide-in-from-bottom-4 mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 pt-20 pb-24 duration-700 md:px-6 md:pt-32 md:pb-32">

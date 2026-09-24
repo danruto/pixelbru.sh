@@ -49,11 +49,11 @@ const ContactSection: React.FC = () => (
         <Spotlight className="bg-card/50 overflow-hidden rounded-3xl border px-6 py-16 text-center md:px-16 md:py-24">
             <div
                 aria-hidden
-                className="bg-grid absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_center,black_10%,transparent_70%)]"
+                className="bg-grid pointer-events-none absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_center,black_10%,transparent_70%)]"
             />
             <div
                 aria-hidden
-                className="bg-brand/20 absolute -bottom-32 left-1/2 -z-10 size-96 -translate-x-1/2 rounded-full blur-3xl"
+                className="bg-brand/20 pointer-events-none absolute -bottom-32 left-1/2 -z-10 size-96 -translate-x-1/2 rounded-full blur-3xl"
             />
             <p className="text-brand font-mono text-sm font-bold tracking-widest uppercase">03 / Contact</p>
             <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
