@@ -54,7 +54,7 @@ const ContactSection: React.FC = () => (
                 aria-hidden
                 className="bg-brand/20 absolute -bottom-32 left-1/2 -z-10 size-96 -translate-x-1/2 rounded-full blur-3xl"
             />
-            <p className="font-pixel text-brand text-sm tracking-widest uppercase">03 / Contact</p>
+            <p className="text-brand font-mono text-sm font-bold tracking-widest uppercase">03 / Contact</p>
             <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
                 Have a project in mind?
             </h2>

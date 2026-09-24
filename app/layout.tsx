@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google"
+import { Geist, Space_Mono } from "next/font/google"
 
 // oxlint-disable-next-line import/no-unassigned-import
 import "./globals.css"
@@ -13,20 +13,18 @@ const geistSans = Geist({
     subsets: ["latin"],
     variable: "--font-geist-sans",
 })
-const geistMono = Geist_Mono({
+// Space Mono Bold is the Pixel Brush wordmark face
+const spaceMono = Space_Mono({
     subsets: ["latin"],
-    variable: "--font-geist-mono",
-})
-const pixelifySans = Pixelify_Sans({
-    subsets: ["latin"],
-    variable: "--font-pixelify-sans",
+    weight: ["400", "700"],
+    variable: "--font-space-mono",
 })
 
 const DEFAULT_TITLE = "Pixel Brush | Danny Sok | Full-stack Software Engineer | 10+ years experience"
 const DEFAULT_DESCRIPTION =
     "Full-stack Software Engineer with 10+ years experience from greenfield to digital transformation ready to help you!"
 export const viewport: Viewport = {
-    themeColor: "#0f0f1a",
+    themeColor: "#0f1424",
     colorScheme: "dark",
 }
 
@@ -57,7 +55,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html className={`dark ${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable}`} lang="en">
+        <html className={`dark ${geistSans.variable} ${spaceMono.variable}`} lang="en">
             <body className="flex min-h-screen flex-col">
                 <PostHogProvider>
                     <Header />

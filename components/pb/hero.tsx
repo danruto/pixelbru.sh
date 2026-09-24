@@ -3,15 +3,18 @@ import { ArrowDown, MapPin } from "lucide-react"
 import { Button } from "~/components/ui/button"
 
 import { Contact } from "./contact"
+import { OPEN_SOURCE_PROJECTS } from "./projects"
+import { Spotlight } from "./spotlight"
 
 const STATS = [
     { value: "10+", label: "years shipping software" },
-    { value: "8", label: "open source projects" },
-    { value: "3", label: "clouds: AWS, Azure & GCP" },
+    { value: "50+", label: "languages, frameworks & tools" },
+    { value: `${OPEN_SOURCE_PROJECTS.length}`, label: "open source projects" },
+    { value: "AI-native", label: "agentic workflows & ML products" },
 ]
 
 const Hero: React.FC = () => (
-    <section id="top" className="relative isolate overflow-hidden">
+    <Spotlight id="top" className="overflow-hidden">
         <div
             aria-hidden
             className="bg-grid absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"
@@ -51,16 +54,16 @@ const Hero: React.FC = () => (
                 </Button>
             </div>
 
-            <dl className="mt-8 grid w-full grid-cols-1 gap-6 border-t pt-8 sm:grid-cols-3">
+            <dl className="mt-8 grid w-full grid-cols-1 gap-6 border-t pt-8 sm:grid-cols-2 lg:grid-cols-4">
                 {STATS.map((stat) => (
                     <div key={stat.label} className="flex flex-col gap-1">
                         <dt className="text-muted-foreground order-2 text-sm">{stat.label}</dt>
-                        <dd className="font-pixel text-foreground order-1 text-4xl">{stat.value}</dd>
+                        <dd className="text-foreground order-1 font-mono text-4xl font-bold">{stat.value}</dd>
                     </div>
                 ))}
             </dl>
         </div>
-    </section>
+    </Spotlight>
 )
 
 export { Hero }
