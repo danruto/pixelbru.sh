@@ -1,23 +1,21 @@
-import type { Metadata } from "next"
-import { Pixelify_Sans } from "next/font/google"
-import localFont from "next/font/local"
+import type { Metadata, Viewport } from "next"
+import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google"
 
 // oxlint-disable-next-line import/no-unassigned-import
 import "./globals.css"
-import Footer from "~/components/pb/footer"
-import { Toaster } from "~/components/ui/toaster"
+import { Footer } from "~/components/pb/footer"
+import { Header } from "~/components/pb/header"
+import { Toaster } from "~/components/ui/sonner"
 
 import { PostHogProvider } from "./providers"
 
-const geistSans = localFont({
-    src: "./fonts/GeistVF.woff",
+const geistSans = Geist({
+    subsets: ["latin"],
     variable: "--font-geist-sans",
-    weight: "100 900",
 })
-const geistMono = localFont({
-    src: "./fonts/GeistMonoVF.woff",
+const geistMono = Geist_Mono({
+    subsets: ["latin"],
     variable: "--font-geist-mono",
-    weight: "100 900",
 })
 const pixelifySans = Pixelify_Sans({
     subsets: ["latin"],
@@ -27,7 +25,13 @@ const pixelifySans = Pixelify_Sans({
 const DEFAULT_TITLE = "Pixel Brush | Danny Sok | Full-stack Software Engineer | 10+ years experience"
 const DEFAULT_DESCRIPTION =
     "Full-stack Software Engineer with 10+ years experience from greenfield to digital transformation ready to help you!"
+export const viewport: Viewport = {
+    themeColor: "#0f0f1a",
+    colorScheme: "dark",
+}
+
 export const metadata: Metadata = {
+    metadataBase: new URL("https://pixelbru.sh"),
     title: {
         template: "%s | Pixel Brush",
         default: DEFAULT_TITLE,
@@ -53,20 +57,15 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html className="dark" lang="en">
-            <PostHogProvider>
-                <body
-                    className={`${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable} flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-950 antialiased`}
-                >
-                    <main className="container min-h-screen px-2 font-[family-name:var(--font-geist-sans)] md:max-w-[1200px]">
-                        {children}
-                    </main>
+        <html className={`dark ${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable}`} lang="en">
+            <body className="flex min-h-screen flex-col">
+                <PostHogProvider>
+                    <Header />
+                    <main className="flex-1">{children}</main>
+                    <Footer />
                     <Toaster />
-                    <footer>
-                        <Footer />
-                    </footer>
-                </body>
-            </PostHogProvider>
+                </PostHogProvider>
+            </body>
         </html>
     )
 }

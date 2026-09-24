@@ -1,8 +1,15 @@
-const Logo = () => (
-    <h1 className="bg-gradient-to-r from-indigo-200/60 to-indigo-400/80 to-70% bg-clip-text pb-8 text-center font-[family-name:var(--font-pixelify-sans)] text-5xl font-extrabold [text-wrap:balance] text-transparent md:text-8xl">
+import { cn } from "~/lib/utils"
+
+const Logo: React.FC<{ className?: string }> = ({ className }) => (
+    <span
+        className={cn(
+            "font-pixel bg-linear-to-r from-indigo-200 to-indigo-400 bg-clip-text font-bold tracking-wide text-transparent",
+            className,
+        )}
+    >
         PIXEL BRUSH
-    </h1>
+    </span>
 )
 
-export default Logo
 export { Logo }
+export default Logo

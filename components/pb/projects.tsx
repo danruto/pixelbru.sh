@@ -1,239 +1,165 @@
-import { GitHubLogoIcon } from "@radix-ui/react-icons"
-import { Globe } from "lucide-react"
+import { ArrowUpRight, BookOpen, Globe, Joystick, Presentation, Snowflake, Sparkles, Type } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import Image from "next/image"
 
 import { Badge } from "~/components/ui/badge"
-import BoxReveal from "~/components/ui/box-reveal"
-import { Button } from "~/components/ui/button"
-import { MagicCard, MagicContainer } from "~/components/ui/magic-card"
-import Marquee from "~/components/ui/marquee"
-import { ny } from "~/lib/utils"
+import { cn } from "~/lib/utils"
+
+import { SectionHeading } from "./section-heading"
 
 interface IProject {
     name: string
     description: string
-    period: string
-    url?: string
-    repository?: string
-    image?: string
+    href: string
+    kind: "Source" | "Live site"
+    Icon: LucideIcon
     stack: string[]
+    image?: string
+    // Spans two columns on large screens
+    wide?: boolean
 }
 
-const PROJECT_LIST: IProject[] = [
-    {
-        name: "pixelbru.sh",
-        description: "This website! The main branch is the NextJS version.",
-        period: "2024",
-        url: "https://pixelbru.sh",
-        repository: "https://github.com/danruto/pixelbru.sh",
-        stack: ["NextJS", "NyxbUI", "TailwindCSS"],
-    },
-    {
-        name: "pixelbru.sh dioxus",
-        description: "This website! The rust branch is the Dioxus version.",
-        period: "2024",
-        url: "https://rs.pixelbru.sh",
-        repository: "https://github.com/danruto/pixelbru.sh/tree/rust",
-        stack: ["Tailwind", "Dioxus", "Rust"],
-    },
-    {
-        name: "Tracking the Pros - Worlds 2024",
-        description: "A Solid-Start app to track the bootcamp accounts of League of Legends Worlds 2024 participants",
-        period: "2024",
-        url: "https://worlds2024.pixelbru.sh",
-        repository: "https://github.com/danruto/track-the-pros",
-        stack: ["Solid-Start", "Typescript", "Vite", "Vinxi", "Supabase", "Postgres", "Drizzle", "NodeJS"],
-    },
-    {
-        name: "Raito-Zig",
-        description: "A TUI Light Novel reader built in Zig with a custom built css parser",
-        period: "2024",
-        repository: "https://github.com/danruto/raito-zig",
-        stack: ["Zig", "Tuile", "SQLite", "Xata"],
-    },
-    {
-        name: "Reflectal",
-        description: "A corporate mental health and wellbeing app",
-        period: "2024",
-        url: "https://reflectal.au",
-        stack: [
-            "NextJS",
-            "Typescript",
-            "Ladle",
-            "Vercel",
-            "Go",
-            "Fiber",
-            "Websockets",
-            "Appwrite",
-            "AWS",
-            "AWS Cloudformation",
-            "AWS Cloudwatch",
-            "AWS ECS",
-            "AWS ECR",
-            "AWS IAM",
-            "AWS RDS",
-            "AWS S3",
-            "Twilio",
-            "Hotjar",
-            "GA",
-            "Postgres",
-            "Docker",
-            "Github Actions",
-        ],
-    },
+const OPEN_SOURCE_PROJECTS: IProject[] = [
     {
         name: "Retrotool",
         description:
-            "A quick and easy ephemeral retro board that has some fun features like copy to clipboard for pasting in Confluence, ice breakers known as question time and no data is stored beyond the session.",
-        period: "2024",
-        url: "https://retro.pixelbru.sh",
-        stack: ["Tailwind", "SolidJS", "Go", "Fiber", "Websockets", "Github Actions"],
+            "A quick and easy ephemeral retro board with copy to clipboard for pasting into Confluence and ice breakers known as question time. No data is stored beyond the session.",
+        href: "https://retro.pixelbru.sh",
+        kind: "Live site",
+        Icon: Presentation,
+        stack: ["SolidJS", "Go", "Websockets", "TailwindCSS", "Docker", "GitHub Actions"],
+        image: "/retrotool.png",
+        wide: true,
     },
     {
-        name: "GAF Digitisation",
+        name: "Tracking the Pros - Worlds 2024",
+        description: "A Solid-Start app to track the bootcamp accounts of League of Legends Worlds 2024 participants.",
+        href: "https://worlds2024.pixelbru.sh",
+        kind: "Live site",
+        Icon: Joystick,
+        stack: ["Solid-Start", "TypeScript", "Vite", "Supabase", "Postgres", "Drizzle"],
+        image: "/ttp-min.png",
+    },
+    {
+        name: "Raito-Zig",
+        description: "A TUI light novel reader built in Zig with a custom built CSS parser.",
+        href: "https://github.com/danruto/raito-zig",
+        kind: "Source",
+        Icon: BookOpen,
+        stack: ["Zig", "Tuile", "SQLite", "Postgres"],
+        image: "/raito-zig.png",
+    },
+    {
+        name: "pixelbru.sh",
+        description: "This website! The main branch is the Next.js version.",
+        href: "https://github.com/danruto/pixelbru.sh",
+        kind: "Source",
+        Icon: Globe,
+        stack: ["Next.js", "shadcn/ui", "TailwindCSS", "Cloudflare"],
+    },
+    {
+        name: "pixelbru.sh dioxus",
+        description: "This website again! The rust branch is the Dioxus version.",
+        href: "https://github.com/danruto/pixelbru.sh/tree/rust",
+        kind: "Source",
+        Icon: Sparkles,
+        stack: ["Rust", "Dioxus", "TailwindCSS"],
+    },
+    {
+        name: "Nix Dotfiles",
+        description: "In case you are also a nerd and want to see my configuration for whatever reason, here they are.",
+        href: "https://github.com/danruto/dotfiles-nixos",
+        kind: "Source",
+        Icon: Snowflake,
+        stack: ["Nix", "Lua", "KDL", "TOML"],
+    },
+    {
+        name: "Contentful Client Go",
         description:
-            "Digitised the GAF calculators from https://piccc.org.au/resources/Tools.html specfiically the SB-GAF and G-GAFs. The project was built in Go and produced results for real-time calculations in under 100ms TRT",
-        period: "2022-2024",
-        stack: [
-            "Go",
-            "Fiber",
-            "React",
-            "Tailwind",
-            "Hasura",
-            "Postgres",
-            "Tilt",
-            "Kubernetes",
-            "Docker",
-            "Github Actions",
-            "Storybook",
-        ],
+            "A helper library for consuming Contentful GraphQL in a typed manner with some light types and utility methods.",
+        href: "https://github.com/danruto/contentful-client-go",
+        kind: "Source",
+        Icon: Type,
+        stack: ["Go", "GraphQL"],
     },
     {
-        name: "Mortgage Lending Management System",
+        name: "Friendly Words Go",
         description:
-            "A platform to help brokers and consumers to manage the loan that is being serviced for their mortgage.",
-        period: "2021-2022",
-        stack: [".NET Core", "Azure", "Azure DevOps", "Go", "React", "Storybook", "Docker", "PEXA"],
-    },
-    {
-        name: "Waypass",
-        description: "An early QR code check-in mobile application with geo-fencing during COVID lockdowns",
-        period: "2020",
-        stack: ["Flutter", "Python", "Firebase"],
-    },
-    {
-        name: "eNVD",
-        description: "A platform to help farmers track the movement and other vital information of their livestock.",
-        period: "2019-2021",
-        url: "https://envd.integritysystems.com.au",
-        stack: [
-            "CSS",
-            "SASS",
-            "React",
-            ".NET Core",
-            "GraphQL",
-            "AWS",
-            "AWS Cloudformation",
-            "AWS Cloudwatch",
-            "AWS ECS",
-            "AWS ECR",
-            "AWS IAM",
-            "AWS Lambda",
-            "AWS RDS",
-            "AWS S3",
-            "Bitbucket Pipelines",
-            "Python",
-            "Canvas/WebGL",
-            "Storybook",
-            "Docker",
-        ],
-    },
-    {
-        name: "Custom Bridesmaid Dresses",
-        description:
-            "Built a UI around the concept of building your own bridesmaid dresses. These dresses had multiple components that would change in compatibility based on other selections in any direction (that is a top half, bottom half, side etc). This solution could render the stiched drawing of the calculated dress in under 100ms with full lazy loading.",
-        period: "2018-2019",
-        stack: [
-            "CSS",
-            "SASS",
-            "Typescript",
-            "React",
-            ".NET Core",
-            "AWS Cloudformation",
-            "AWS Cloudwatch",
-            "AWS EB",
-            "AWS IAM",
-            "AWS Lambda",
-            "AWS RDS",
-            "AWS S3",
-            "Ruby on Rails",
-            "CircleCI",
-            "Storybook",
-            "Docker",
-        ],
-    },
-    {
-        name: "CyRisk",
-        description:
-            "Built the initial solution to CyRisk (later called eDNA) which was a cyber security risk assessment platform.",
-        period: "2017-2018",
-        stack: ["React", ".NET Core", "MSSQL", "Typescript", "Azure", "Azure DevOps", "Storybook"],
+            "A little library to help you generate unique word lists for things like short urls, ids or any other friendly name scheme.",
+        href: "https://github.com/danruto/friendly-words-go",
+        kind: "Source",
+        Icon: Type,
+        stack: ["Go"],
     },
 ]
 
-const Projects = () => (
-    <MagicContainer className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:flex-row">
-        {PROJECT_LIST.map((project) => (
-            <MagicCard
-                key={project.name}
-                className="w-full overflow-hidden bg-indigo-300 bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#c7d2fe_0,#818cf8_50%,transparent_100%)] p-4 shadow-2xl dark:bg-indigo-600"
+const ProjectCard: React.FC<{ project: IProject }> = ({ project }) => (
+    <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cn(
+            "group bg-card/50 relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300",
+            "hover:border-brand/40 hover:bg-card hover:shadow-brand/10 hover:-translate-y-1 hover:shadow-2xl",
+            "focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none",
+            project.wide && "lg:col-span-2",
+        )}
+    >
+        {project.image && (
+            <div
+                className={cn(
+                    "bg-muted relative aspect-video overflow-hidden border-b",
+                    project.wide && "lg:aspect-auto lg:min-h-48 lg:flex-1",
+                )}
             >
-                <div className="flex h-full w-full flex-col justify-between">
-                    <div className="flex items-baseline justify-between">
-                        <BoxReveal boxColor="#c7d2fe" duration={0.5}>
-                            <h3 className="text-xl font-semibold">{project.name}</h3>
-                        </BoxReveal>
-                        <span
-                            className={ny("grid gap-2", {
-                                "grid-cols-1": project.url || project.repository,
-                                // Replaces grid-cols-1 if both exist
-                                "grid-cols-2": project.url && project.repository,
-                            })}
-                        >
-                            {project.url && (
-                                <a href={project.url} target="_blank" rel="noreferrer" title={project.name}>
-                                    <Button variant={"outline"} size="icon" type="button">
-                                        <Globe />
-                                    </Button>
-                                </a>
-                            )}
-                            {project.repository && (
-                                <a href={project.repository} target="_blank" rel="noreferrer" title={project.name}>
-                                    <Button variant={"outline"} size="icon" type="button">
-                                        <GitHubLogoIcon width={24} height={24} />
-                                    </Button>
-                                </a>
-                            )}
-                        </span>
-                    </div>
-
-                    <BoxReveal boxColor="#c7d2fe" duration={0.5}>
-                        <p className="text-md text-slate-400">{project.description}</p>
-                    </BoxReveal>
-
-                    <Marquee pauseOnHover>
-                        {project.stack.map((s) => (
-                            <Badge key={s} variant={"secondary"}>
-                                {s}
-                            </Badge>
-                        ))}
-                    </Marquee>
+                <Image
+                    src={project.image}
+                    alt={`Screenshot of ${project.name}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover object-top opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                />
+            </div>
+        )}
+        <div className="flex flex-1 flex-col gap-4 p-6">
+            <div className="flex items-start justify-between gap-4">
+                <div className="bg-background text-brand flex size-10 items-center justify-center rounded-lg border">
+                    <project.Icon className="size-5" />
                 </div>
-
-                <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-            </MagicCard>
-        ))}
-    </MagicContainer>
+                <span className="text-muted-foreground group-hover:text-foreground flex items-center gap-1 text-xs transition-colors">
+                    {project.kind}
+                    <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+            </div>
+            <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold tracking-tight">{project.name}</h3>
+                <p className="text-muted-foreground text-sm text-pretty">{project.description}</p>
+            </div>
+            <ul className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                {project.stack.map((tech) => (
+                    <li key={tech}>
+                        <Badge variant="secondary">{tech}</Badge>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </a>
 )
 
-export default Projects
+const Projects: React.FC = () => (
+    <section id="projects" className="mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
+        <SectionHeading
+            eyebrow="01 / Projects"
+            title="Things I've built in the open"
+            description="A mix of side projects, tools and libraries. Most of them are open source, so feel free to poke around."
+        />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {OPEN_SOURCE_PROJECTS.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+            ))}
+        </div>
+    </section>
+)
+
 export { Projects }
+export default Projects

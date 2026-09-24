@@ -1,51 +1,35 @@
-import { ny } from "~/lib/utils"
+import type * as React from "react"
 
-interface MarqueeProps {
-    className?: string
+import { cn } from "~/lib/utils"
+
+interface MarqueeProps extends React.ComponentProps<"div"> {
     reverse?: boolean
     pauseOnHover?: boolean
-    children?: React.ReactNode
-    vertical?: boolean
     repeat?: number
-    [key: string]: any
 }
 
-export default function Marquee({
-    className,
-    reverse,
-    pauseOnHover = false,
-    children,
-    vertical = false,
-    repeat = 4,
-    ...props
-}: MarqueeProps) {
+function Marquee({ className, reverse = false, pauseOnHover = false, repeat = 4, children, ...props }: MarqueeProps) {
     return (
         <div
+            data-slot="marquee"
+            className={cn("group flex gap-(--gap) overflow-hidden p-2 [--duration:40s] [--gap:1rem]", className)}
             {...props}
-            className={ny(
-                "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
-                {
-                    "flex-row": !vertical,
-                    "flex-col": vertical,
-                },
-                className,
-            )}
         >
-            {Array(repeat)
-                .fill(0)
-                .map((_, i) => (
-                    <div
-                        key={i}
-                        className={ny("flex shrink-0 justify-around [gap:var(--gap)]", {
-                            "animate-marquee flex-row": !vertical,
-                            "animate-marquee-vertical flex-col": vertical,
-                            "group-hover:[animation-play-state:paused]": pauseOnHover,
-                            "[animation-direction:reverse]": reverse,
-                        })}
-                    >
-                        {children}
-                    </div>
-                ))}
+            {Array.from({ length: repeat }, (_, i) => (
+                <div
+                    key={i}
+                    aria-hidden={i > 0}
+                    className={cn(
+                        "animate-marquee flex shrink-0 flex-row justify-around gap-(--gap) motion-reduce:animate-none",
+                        pauseOnHover && "group-hover:[animation-play-state:paused]",
+                        reverse && "[animation-direction:reverse]",
+                    )}
+                >
+                    {children}
+                </div>
+            ))}
         </div>
     )
 }
+
+export { Marquee }
